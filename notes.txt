@@ -1,0 +1,28 @@
+to unstage a file
+git restore --staged <filename>
+
+to see whole history
+git log
+
+to delete a commit -> go to its previous commit
+git reset <commitId>
+
+to delete a bunch of commits -> go to the previous commit of the last commit in your commit list that you want to delete
+git reset <commitIdBeforeLastCommit>
+
+we cannot delete commits in between because all commits are built on the top of their previous commit
+we can delete commits in their update date order(Descending)
+means if we want to go to the latest 3rd commit, then we've to delete latest 2 commits
+
+when we run this command - git reset <commitId>
+then it will undo all the changes of the commits that you've deleted and we'll have this changes as unstaged
+
+now from here, either we can remove these change or stash them
+to stash them
+git stash
+
+and to bring back the stash content
+git stash pop
+
+to clear all stacks
+git stash clear
