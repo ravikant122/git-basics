@@ -77,3 +77,6 @@ git stash apply stash@{n} - where n is the stash number
 
 to clear all stacks
 git stash clear
+
+to force push
+git push -f origin <branch_name>
