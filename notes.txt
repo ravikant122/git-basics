@@ -1,5 +1,50 @@
+to initalize a directory as git repo
+git init
+
+now to attach a git repo to this directory
+git remote add origin <repo_url>
+
+to create a branch
+git checkout -b <branch_name>  -- this will create n checkout that branch
+or 
+git branch -b <branch_name>
+
+now do some changes to one(or more) files
+1. they are unstaged now, so first we've to stage them
+2. then we've to commit them
+3. then we've to push them to repo(in the origin, origin means in the repo remotely)
+
+to stage
+git add <filename>
+to stage all files
+git add .
+
+to commit
+git commit -m "<message>"
+
+to push
+git push origin <branch_name>
+
 to unstage a file
 git restore --staged <filename>
+
+to delete a branch
+git branch -d <branch_name> or git branch -D <branch_name>
+
+to delete this branch remotely
+git push origin -d <branch_name> or git push origin :<locally_deleted_branch_name> 
+
+to see branches locally
+git branch
+
+to see branches remotely
+git branch -r
+
+to see all branches locally and remotely
+git branch -a
+
+to checkout already existed branch
+git checkout <branch_name>
 
 to see whole history
 git log
@@ -26,3 +71,5 @@ git stash pop
 
 to clear all stacks
 git stash clear
+
+git 
