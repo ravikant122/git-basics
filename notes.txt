@@ -66,10 +66,14 @@ now from here, either we can remove these change or stash them
 to stash them
 git stash
 
-and to bring back the stash content
-git stash pop
+to apply the latest stash
+git stash apply
+
+to see stash list
+git stash list
+
+to apply a specific stash
+git stash apply stash@{n} - where n is the stash number
 
 to clear all stacks
 git stash clear
-
-git 
