@@ -111,6 +111,19 @@ git reset --hard upstream/<upstream_branch>
 now our head is sync with upstream but only locally, so we need to push it to the origin
 git push origin <your_branch>  -> after this we can see in github, our repo's branch is synced with upstream
 
-
 to do above two steps(fetch and reset) in just one stream
 git pull upstream <upstream_branch>  -> now push your branch to the origin
+
+Squashing the commits - to merge all commits in a single commits
+one way
+1. to reset the head to the commit before the last commit that you want to Squash
+2. now you have all the changes of all the commits unstaged
+3. now commit all the changes - so it will be in single commit
+
+second way - use rabase
+1. copy the id of the commit before the last commit that you want to Squash
+2. git rebase -i <commitId>  -> i = interactive mode
+3. now choose what commits to pick and what to Squash
+4. then add a message of the commit that you just squash all the commits into
+5. push it
+you will see that the commits you squash are in one commit and their changes are in one commit
