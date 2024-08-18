@@ -4,10 +4,16 @@ git init
 now to attach a git repo to this directory
 git remote add origin <repo_url>
 
+if above repo already existed then first we need to fetch the branch content then create your own branch and do changes
+git pull origin <main_branch>
+
+or if you want it simple, just clone the existing repo
+git clone <repo_url>
+
 to create a branch
-git checkout -b <branch_name>  -- this will create n checkout that branch
+git checkout -b <branch>  -- this will create n checkout that branch
 or 
-git branch -b <branch_name>
+git branch -b <branch>
 
 now do some changes to one(or more) files
 1. they are unstaged now, so first we've to stage them
@@ -23,16 +29,16 @@ to commit
 git commit -m "<message>"
 
 to push
-git push origin <branch_name>
+git push origin <branch>
 
 to unstage a file
 git restore --staged <filename>
 
 to delete a branch
-git branch -d <branch_name> or git branch -D <branch_name>
+git branch -d <branch> or git branch -D <branch>
 
 to delete this branch remotely
-git push origin -d <branch_name> or git push origin :<locally_deleted_branch_name> 
+git push origin -d <branch> or git push origin :<locally_deleted_branch> 
 
 to see branches locally
 git branch
@@ -44,7 +50,7 @@ to see all branches locally and remotely
 git branch -a
 
 to checkout already existed branch
-git checkout <branch_name>
+git checkout <branch>
 
 to see whole history
 git log
@@ -79,4 +85,32 @@ to clear all stacks
 git stash clear
 
 to force push
-git push -f origin <branch_name>
+git push -f origin <branch>
+
+fork - when you neeed someones's repo, whole repo, but its not in your organization or account
+that's why you can't clone it, but you can fork it and it will be in your account and then you can do some changes
+and create a pull request to the forked repo's account
+
+to fork - go to github and fork the repo, now it will be in your account
+now the repo you just forked is called upstream
+
+now to add upstream locally to the repo
+git remote add upstream <upstream_repo> -- the upstream repo is the repo you just forked from an account other than yours
+
+let's see how to create a pull request in forked repo
+1. do some changes in your repo(forked one)
+2. push it
+3. there will be an option in github to create pull request(PR) - PR will be created in other person's account
+
+once the PR gets merged, you have to fetch the latest changes to your repo(forked one)
+git fetch --all --prone   -> this will fetch you repo's updates and upstream's updates
+
+but after fetching, the head of our branch is not at the head of upstream's branch
+git reset --hard upstream/<upstream_branch>
+
+now our head is sync with upstream but only locally, so we need to push it to the origin
+git push origin <your_branch>  -> after this we can see in github, our repo's branch is synced with upstream
+
+
+to do above two steps(fetch and reset) in just one stream
+git pull upstream <upstream_branch>  -> now push your branch to the origin
