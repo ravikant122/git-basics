@@ -127,3 +127,5 @@ second way - use rabase
 4. then add a message of the commit that you just squash all the commits into
 5. push it
 you will see that the commits you squash are in one commit and their changes are in one commit
+
+.gitignore - its the file in which you can mention folders/files that you don't want to push like node_modules, logs etc.
