@@ -34,6 +34,9 @@ git push origin <branch>
 to unstage a file
 git restore --staged <filename>
 
+to unstage all staged files
+git reset
+
 to delete a branch
 git branch -d <branch> or git branch -D <branch>
 
@@ -129,3 +132,9 @@ second way - use rabase
 you will see that the commits you squash are in one commit and their changes are in one commit
 
 .gitignore - its the file in which you can mention folders/files that you don't want to push like node_modules, logs etc.
+
+if you ever clone some repo(lets say folder name is - inner_repo) into your repo(lets say folder name is outer_repo)
+and then you try to push that inner_repo to your repo, it will give submodule warning
+so now either create a submodule or there's a workaround
+workaround is: delete .git file in inner_repo, now its a part of your repo
+now just stage, commit and push the files
